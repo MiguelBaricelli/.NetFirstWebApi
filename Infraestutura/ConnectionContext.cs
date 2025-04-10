@@ -11,7 +11,8 @@ namespace WebApplication1.Infraestutura
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=PCQUARTO\\SQLEXPRESS;Database=WepApiDotNet;trusted_connection=true;");
+            optionsBuilder.UseSqlServer("");
         }
+
     }
 }

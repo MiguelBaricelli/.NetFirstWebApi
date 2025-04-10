@@ -2,6 +2,7 @@
 using WebApplication1.Model;
 using WebApplication1.ViewModel;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
@@ -15,7 +16,7 @@ namespace WebApplication1.Controllers
         {
             _employeeRepository = employeeRepository;
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult Add([FromForm] EmployeeViewModel employeeView)
         {
@@ -31,6 +32,7 @@ namespace WebApplication1.Controllers
 
             return Ok();
         }
+        [Authorize]
         [HttpPost]
         [Route("{id}/download")]
         public IActionResult DownloadPhoto(int id)
@@ -41,6 +43,7 @@ namespace WebApplication1.Controllers
 
             return File(dataBytes, "image/png");
         }
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
